@@ -2,12 +2,6 @@ pipeline {
     agent any
 
     stages {
-        stage('Clone') {
-            steps {
-                git branch: 'main', url: 'https://github.com/diyadevi21/nodejs-cicd-app.git'
-            }
-        }
-
         stage('Install') {
             steps {
                 sh 'npm install'
@@ -33,4 +27,4 @@ pipeline {
         }
     }
 }
-           
+              
