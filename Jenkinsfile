@@ -1,30 +1,29 @@
-pipeline {
+ pipeline {
     agent any
 
     stages {
         stage('Install') {
             steps {
-                sh 'npm install'
+                bat 'npm install'
             }
         }
 
         stage('Test') {
             steps {
-                sh 'npm test || echo "No test script found"'
+                bat 'npm test'
             }
         }
 
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t my-node-app .'
+                bat 'docker build -t my-nodejs-app .'
             }
         }
 
         stage('Run Container') {
             steps {
-                sh 'docker run -d -p 3000:3000 my-node-app'
+                bat 'docker run -d -p 3000:3000 my-nodejs-app'
             }
         }
     }
-}
-              
+} 
